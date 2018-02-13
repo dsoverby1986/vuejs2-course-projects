@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="C:/code/vue/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <div>
+                <button v-on:click="counter++">Increase</button>
+                <button v-on:click="counter--">Decrease</button>
+                <button v-on:click="counter = 0">Reset</button>
+                <p>Counter: {{ counter }}</p>
+                <p>Result: {{ updateResult() }} | {{ output }}</p>
+            </div>
+            <div>
+                <button v-on:click="secondCounter++">Increase second counter</button>
+                <p>Second counter: {{ secondCounter }}</p>
+            </div>
+        </div>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    counter: 0,
+                    secondCounter: 0
+                },
+                computed: {
+                    output: function(){
+                        console.log('Computed');
+                        return this.counter > 5 ? 'Greater than 5' : this.counter < 5 ? 'Smaller than 5' : 'Equal to 5';
+                    }
+                },
+                methods: {
+                    updateResult: function() {
+                        console.log('Method');
+                        return this.counter > 5 ? 'Greater than 5' : this.counter < 5 ? 'Smaller than 5' : 'Equal to 5';
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
